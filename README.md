@@ -5,13 +5,18 @@ The application also provides an HTTP endpoint to query the data by id.
 
 ## Getting Started
 
+### Requirements
++ [Docker](https://docs.docker.com/)
++ [Docker Compose](https://docs.docker.com/compose/install/)
+
+
 ### Clone the repository
 
 ```git clone https://github.com/avag-sargsyan/vrstore.git```
 
 ### Run the application
 
-```docker compose up```
+```docker compose up -d```
 
 ### Get record
 
