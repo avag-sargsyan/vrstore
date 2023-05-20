@@ -1,0 +1,30 @@
+version: '3'
+
+services:
+  postgres:
+    image: postgres:15.3-alpine
+    restart: always
+    ports:
+      - 5432:5432
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: vrstore
+
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: always
+    ports:
+      - 1321:1321
+    depends_on:
+      - postgres
+    volumes:
+      - .:/app
+    environment:
+      DATABASE_HOST: postgres
+      DATABASE_PORT: 5432
+      DATABASE_NAME: vrstore
+      DATABASE_USER: postgres
+      DATABASE_PASSWORD: password
